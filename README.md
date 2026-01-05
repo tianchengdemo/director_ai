@@ -25,28 +25,27 @@ AI漫导是一款基于 Flutter 开发的移动应用，采用 **AI 智能体架
 
 ![](/images/d82ef8a6d34fa0bcd71636ae2e931e28.jpg)
 
-生产过程录屏：
+生产过程录屏视频：
 
-![](images/AI 漫剧APP-2.mp4)
+![](images/AI漫剧APP-2.mp4)
 
 
 我总结了一下大概的流程是这样子的：
 
-
-![](https://cdn.canghecode.com/blog/AI%20%E6%BC%AB%E5%89%A7APP-4.gif)
+![](images/AI漫剧APP-4.gif)
 
 
 其中，我比较关心的是人物一致性解决方案：
 
-![](https://cdn.canghecode.com/blog/20260105115408.png)
+![](images/20260105115408.png)
 
 在对应场景的配置默认是给了 7 个，角色是给了 2 个，然后这些我都设置成可配置的了。
 
-![](https://cdn.canghecode.com/blog/AI%20%E6%BC%AB%E5%89%A7APP-5.png)
+![](images/AI漫剧APP-5.png)
 
 能够生成角色三视图：
 
-![](https://cdn.canghecode.com/blog/AI%20%E6%BC%AB%E5%89%A7APP-16.png)
+![](images/AI漫剧APP-15.png)
 
 剧本场景：
 
@@ -54,18 +53,15 @@ AI漫导是一款基于 Flutter 开发的移动应用，采用 **AI 智能体架
 
 场景规划：
 
-![](https://cdn.canghecode.com/blog/AI%20%E6%BC%AB%E5%89%A7APP-18.png)
+![](images/AI漫剧APP-18.png)
 
 场景执行：
 
-![](https://cdn.canghecode.com/blog/AI%20%E6%BC%AB%E5%89%A7APP-19.png)
+![](images/AI漫剧APP-19.png)
 
 场景分镜规划：
 
-![](https://cdn.canghecode.com/blog/AI%20%E6%BC%AB%E5%89%A7APP-20.png)
-
-
-
+![](images/AI漫剧APP-19.png)
 
 
 ## 🛠️ 技术架构
