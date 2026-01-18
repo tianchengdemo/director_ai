@@ -170,7 +170,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           // 视频生成配置
           _buildApiKeyRow(
             context,
-            '视频生成 (tuzi-api)',
+            '视频生成 (苍何 API)',
             ApiConfigService.maskApiKey(ApiConfigService.getVideoApiKey()),
             Icons.videocam_outlined,
             const Color(0xFFEC4899),
@@ -186,7 +186,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           // 图像生成配置
           _buildApiKeyRow(
             context,
-            '图像生成 (tuzi-api)',
+            '图像生成 (苍何 API)',
             ApiConfigService.maskApiKey(ApiConfigService.getImageApiKey()),
             Icons.image_outlined,
             const Color(0xFFF59E0B),
@@ -197,13 +197,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
               (key) => ApiConfigService.setImageApiKey(key),
             ),
           ),
-          // 兔子 API 推广信息
+          // 苍何 API 推广信息
           _buildPromoRow(
             context,
-            '🎁 邀请注册获额度',
-            '邀请好友双方各得 \$0.4 额度',
+            '🎁 推荐苍何 API',
+            '稳定、高性能的 AI 服务接口',
             const Color(0xFFEC4899),
-            'https://api.tu-zi.com/register?aff=zTvc',
+            'https://api.canghe.ai/',
           ),
           const Divider(height: 1),
 

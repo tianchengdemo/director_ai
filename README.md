@@ -221,6 +221,131 @@ class ApiConfig {
 static const int _maxIterations = 10;
 ```
 
+## 🌟 API 使用教程
+
+### 推荐：使用苍何 API
+
+本项目推荐使用 **苍何 API** (https://api.canghe.ai/) 来调用各种 AI 模型。苍何 API 提供了稳定、高性能的 AI 服务接口，支持多种主流模型。
+
+### 获取 API Token
+
+1. 访问 [https://api.canghe.ai/](https://api.canghe.ai/)
+2. 注册账号并登录
+3. 在控制台中创建 API Token
+4. 复制你的 Token 备用
+
+### 配置 API Token
+
+#### 方法一：代码中配置（开发测试）
+
+在 `lib/services/api_service.dart` 中设置你的 Token：
+
+```dart
+class ApiConfig {
+  // 推荐使用苍何 API
+  static const String baseUrl = 'https://api.canghe.ai/v1';
+  static String bearerToken = 'YOUR_CANGHE_API_TOKEN';
+}
+```
+
+#### 方法二：应用内设置（推荐）
+
+1. 运行应用后，进入设置界面
+2. 找到 "API 配置" 选项
+3. 输入你的苍何 API Token
+4. 保存配置即可使用
+
+### 支持的模型
+
+苍何 API 支持多种 AI 模型，包括：
+
+| 模型类型 | 模型名称 | 功能 |
+|---------|---------|------|
+| 文本对话 | GLM-4.7, GPT-4, Claude | 智能对话与决策 |
+| 图像生成 | DALL-E, Stable Diffusion, Gemini | 文本转图片 |
+| 视频生成 | Veo, Runway | 图片转视频 |
+
+### API 调用示例
+
+```dart
+import 'package:dio/dio.dart';
+
+class CangheApiService {
+  final Dio _dio = Dio();
+  final String _apiKey = 'YOUR_CANGHE_API_TOKEN';
+  final String _baseUrl = 'https://api.canghe.ai/v1';
+
+  // 调用对话模型
+  Future<String> chat(String message) async {
+    try {
+      final response = await _dio.post(
+        '$_baseUrl/chat/completions',
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $_apiKey',
+            'Content-Type': 'application/json',
+          },
+        ),
+        data: {
+          'model': 'glm-4.7',
+          'messages': [
+            {'role': 'user', 'content': message}
+          ],
+        },
+      );
+      return response.data['choices'][0]['message']['content'];
+    } catch (e) {
+      throw Exception('API 调用失败: $e');
+    }
+  }
+
+  // 生成图片
+  Future<String> generateImage(String prompt) async {
+    try {
+      final response = await _dio.post(
+        '$_baseUrl/images/generations',
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $_apiKey',
+            'Content-Type': 'application/json',
+          },
+        ),
+        data: {
+          'model': 'dall-e-3',
+          'prompt': prompt,
+          'n': 1,
+          'size': '1024x1024',
+        },
+      );
+      return response.data['data'][0]['url'];
+    } catch (e) {
+      throw Exception('图片生成失败: $e');
+    }
+  }
+}
+```
+
+### 费用说明
+
+- 苍何 API 采用按使用量计费的方式
+- 新用户注册即可获得免费额度用于测试
+- 详细价格请访问官网查看：https://api.canghe.ai/pricing
+
+### 常见问题
+
+**Q: API Token 在哪里查看？**
+A: 登录苍何 API 控制台，在 "API 密钥" 页面可以查看和管理你的 Token。
+
+**Q: 如何查看 API 使用量？**
+A: 在控制台的 "使用统计" 页面可以查看详细的调用记录和费用明细。
+
+**Q: API 调用失败怎么办？**
+A: 请检查：
+1. Token 是否正确配置
+2. 账户余额是否充足
+3. 网络连接是否正常
+4. 查看官方文档获取错误代码说明
+
 ## 🔒 安全提示
 
 ⚠️ **重要**：不要将 API Token 提交到版本控制系统！
@@ -229,6 +354,7 @@ static const int _maxIterations = 10;
 - 使用环境变量存储敏感信息
 - 在生产环境中使用后端代理 API 调用
 - 考虑使用 Flutter secure storage 存储 token
+- 定期更换 API Token 以提高安全性
 
 ## 🤝 贡献指南
 
